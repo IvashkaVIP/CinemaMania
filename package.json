@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/dream_team_Cinemania/",
+    "build": "vite build --base=/CinemaMania/",
     "preview": "vite preview"
   },
   "devDependencies": {
