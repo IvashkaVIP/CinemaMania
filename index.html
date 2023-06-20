@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/CinemaMania/assets/ico-71d7d13e.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinemania</title>
+    
+    <script type="module" crossorigin src="/CinemaMania/assets/index-6b93b8e6.js"></script>
+    <link rel="modulepreload" crossorigin href="/CinemaMania/assets/switcher-a65914b1.js">
+    <link rel="modulepreload" crossorigin href="/CinemaMania/assets/lodash-f69bb496.js">
+    <link rel="stylesheet" href="/CinemaMania/assets/switcher-820b70e1.css">
+  </head>
+  <body>
+    <section class="header">
+  <div class="container">
+    <div class="header-wrap">
+      <div class="header-nav-wrap">
+        <a href="./index.html" class="header-logo-box">
+          <svg class="logo">
+          <use href="/CinemaMania/assets/sprite-0e8d2592.svg#icon-Logo"></use>
+          </svg>
+          <span class="logo_text">Cinemania</span>
+        </a>
+          <ul class="nav">
+            <li><a class="nav_list" href="./index.html">HOME</a></li>
+            <li><a class="nav_list" href="./catalog.html">CATALOG</a></li>
+            <li><a class="nav_list" href="./my_library.html">MY LIBRARY</a></li>
+          </ul>
+        <span class="menu" id="menu">MENU</span>
+      </div>
+<!-- ============================switcher=========================================== -->
+    <div class="toggle">
+      <div class="toggle-icon">
+      <svg class="moon-icon">
+          <use href="/CinemaMania/assets/sprite-0e8d2592.svg#icon-Moon"></use>
+      </svg>
+      <svg class="sun-icon">
+          <use href="/CinemaMania/assets/sprite-0e8d2592.svg#icon-Sun"></use>
+      </svg>
+      </div>
+    </div>
+</div>
+  </div>
+</section>
+<!-- ===========================mobile menu================================================== -->
+<div class="backdrop" id="backdrop"></div>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <a href="./index.html" class="modal-logo">
+      <svg class="logo">
+        <use href="/CinemaMania/assets/sprite-0e8d2592.svg#icon-Logo"></use>
+      </svg>
+    </a>
+    <nav class="modal-nav">
+      <ul class="nav-list">
+        <li><a class="mobile-nav-list" href="./index.html">HOME</a></li>
+        <li><a class="mobile-nav-list" href="./catalog.html">CATALOG</a></li>
+        <li><a class="mobile-nav-list" href="./my_library.html">MY LIBRARY</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+    <section class="section hero">
+  <div class="container hero-container"></div>
+</section>
+
+    <section class="section-weekly">
+    <div class="container weekly">
+        <div class="weekly-head">
+            <h3 class="weekly-title">WEEKLY TRENDS</h1>
+            <a href="./catalog.html" class="weekly-see-all">See all</a>
+        </div>
+        <ul class="weekly-js-list"></ul>
+        
+    </div>
+</section>
+    <section class="section upcoming-section">
+  <div class="container">
+    <h1 class="upcoming-title">UPCOMING THIS MONTH</h1>
+    <div id="movies-container"></div>
+  </div>
+</section>
+
+    <section class="section footer-section">
+  <div class="container text-footer">
+    <p>© 2023 | All Rights Reserved |</p>
+    <div class="footer-mobile text">
+      <p class="footer-part">Developed with</p>
+      <svg class="icon-heart">
+        <use width="14" height="13" href="/CinemaMania/assets/icon-8e3ec847.svg#icon-heart"></use>
+      </svg>
+      <span class="footer-span">by</span>
+      <button class="footer-btn text-footer text">GoIT Students</button>
+    </div>
+  </div>
+</section>
+
+    <!-- is-hidden -->
+<div class="backdrop-oops is-hidden" data-modal-oops>
+  <div class="modal-oops">
+    <button type="button" class="close-modal-oops" data-modal-oops-close>
+      <svg class="close-oops">
+        <use href="/CinemaMania/assets/icon-8e3ec847.svg#icon-close" ></use>
+      </svg>
+    </button>
+    <h1 class="text-modal-oops">
+      OOPS... <br> We are very sorry! <br>
+      But we couldn’t find the trailer.
+    </h1>
+    <picture class="camera">
+      <source srcset="data:image/jpeg;base64,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 1x, /CinemaMania/assets/modal-camera-mobile-2x-b385803e.jpg 2x" media="(max-width: 767px)" />
+      <source srcset="/CinemaMania/assets/modal-camera-tablet-1x-bbea414e.jpg 1x, /CinemaMania/assets/modal-camera-tablet-2x-48e161a5.jpg 2x" media="(min-width: 768px and max-width: 1279px)" />
+      <source srcset="/CinemaMania/assets/modal-camera-desktop-1x-c72cd27a.jpg 1x, /CinemaMania/assets/modal-camera-desktop-2x-cdb93358.jpg 2x" media="(min-width: 1280px)" />
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAgICAgJCAkKCgkNDgwODRMREBARExwUFhQWFBwrGx8bGx8bKyYuJSMlLiZENS8vNUROQj5CTl9VVV93cXecnNEBCAgICAkICQoKCQ0ODA4NExEQEBETHBQWFBYUHCsbHxsbHxsrJi4lIyUuJkQ1Ly81RE5CPkJOX1VVX3dxd5yc0f/CABEIAJkAnwMBIgACEQEDEQH/xAAzAAEAAgMBAQEAAAAAAAAAAAAABgcDBAUIAgEBAQEBAQEBAAAAAAAAAAAAAAABAgQFA//aAAwDAQACEAMQAAAApAAAAAAAAAAAAAB+7hpOvLqr3atGMJg+e9AjQEoAAAAE4mFPYKm8d5u4fXxdUASSV1YuxZBIz3rVlohIY9KAAAMh8blmYLOzE4Rksx2bwYGXnT/SnRKux9eYj11Det3DyIlcUzoAdo4uW6uBZB/vFtWacnjFvWQevLBkUutV1pRMsWG+i8yVxRmKXTX3A+vyBnwTCWVfFn+adZx/mp9Z10drTz6yn1fdWop638v2/G7PPH3ppJJx8FZ2Y5VW0nWrvgxtJ4wPWGanrb7/AB6rqj1rFfO9/wA9/UviO+fQt3SxWa8q4Fg6zUUj6dL43ftBeho8adayWFygAAdq7fPEj+fbc3fjcXIpEPnN9OLZt+kM9lncP9249Aed4XrqAAAAA+vkfX4GTEAAAAAAAAAAAAAAH//EACsQAAIDAQABAwIFBAMAAAAAAAMEAgUGAREABxMSFBAVICIwITEyUCUzQP/aAAgBAQABCAD/AGURzl/jFA/R9JLPZRi7mTobmsRQc6ir/JGMpf2BXtsT5ASVWRtwSgbvKo55KJGsbnByD+c22o0orl4YRy3EV6rtbSR58xO/V/JR0Jrd4CotfokKlLlLT5/ToUACFDbXLts8RxohbB/senHwAyQ7JzQY+eZ+1U+xetDDghPF6OEPr4YJgEkI38UWmYBmCHqA5k74jEYRf1ll7PDoISahesq6Sz/4OkxAFvpNYafUCowwQr6i6tIXKhu3itNeA6HrWU0SsJEJ/DGPZd8cgtGHPqLiq3JFBxku0byx2u/k4xEYJEUENCjjUCKio9PC3WOafRv3lsScM97cVqghlsLLUUFOblaFF7zWkNPa4hS0WM6j3ned7zv6gj4QsIesZlqWxl2bG6SySs+8r48nOXIxmIY4eSRUHQ1X38p9lKUpkzzLvYHRQTvs5iY/AKGwVbybl4vI0jTmSeKj3tV8B+XtP1/7Dm3r4V+nshQ/UPshmh31PshmkSEkJx+mbMix74EtjM7yybcca2X1RVT5CMCFJGEC8FlsqrIXB9Y7KXMpSMv4e0RHU+3+kcdGI2q0iOYrC11dWkJ+aJE57jNLM6Psl/0VFBZ28/C1Rl6amkCR/cJIUTIORP39/fX2Z2PlZcKzEf1QXrO8qcigry8vlIBKtD2vzgHDt2h/dgJS3tWGOazTt07BUQQL1aoEQDblHzHr7ZXXm2i4yk6yclke+Jydq14/BVY7bA1wUuEWByJ7S33CqkOqVDFg60z90c7jTh4kZN/2d9fEU85lbKcM5RVU278VXDKCMSMz/wBM3VRps/Wo90WuxJzcWcqA1aKEJ1hjRH++b7DXQQMKGPrSMynxmYkUJ8gUkikmSX4YGMZa+o5LR00rFB5SosqqwqmZLPeof5R9G7+/voy7BZfcN1A4/nNd9W3mbmisIyy9ZOwukI990NMcXIU6ce98Sj2gamHOoB4HydiPy7zZlfalXIYo8h3wo+t2/wAXAKvh+OMcAlqKk52I9g0f1JZK5F1Gz03tY8n9bNNIZBG7Ah+8+TvplvpZ9l6EYgTjNG9Em/ZFclkYDGeBI3C8C6TSmNlKMlu/Ak73fxAbqlGpoGG8U5bS9YNJStqrXRWNnYHs32HDfoz3uQQARpXVXYVBRdslqTW0l4dkCFyHM3pjRttLhrWrh11atq37M3xqJZNCuH87zOkrCmEvzNpLGr4kmmkszExp718VRTr0yHrD5+buEZWZX9p5r+WLHW6MNjMNfXfrztwSkuFH4WFfJgE3VsANpSwdW9WIAjPKIthcdcfkqGEfrnCPoVs+CUviwuiC4GCLPukkxyyQa5ksXYXzcOysLOjzFYEZ9funtDPq4v4aHVXFCTypRb/KFkVo+j9xFjxJCr9efhjLxzvn1OfYzhyKHuHo0w8BM/uhqpg6BZptpw0jtfyclDnjvfkl48cjGXf7c7wUvPP/AAx72P8Abve98ef9l//EADsQAAIBAgQEBAIHBQkAAAAAAAECAwARBBIhMSJBUWEFEBNxMDMUICMyQoGRQFBScqFTYnOxsrPB0dL/2gAIAQEACT8A/eSk0pVAbFrXAJpgsUejyvot+grErNIit60hARAVF8o+KCaiZmOyqCx/QUGknd8oUCsYJMVJpFDGv9STyFZFwygmJJPukfxtV4vD4GtGqL+r2rw14EVLeu7XZb7sQBuakVdCbt2F/inJCihp5Rsqf9mjGrslpXj/AAJ07sawDT46TQyOQqIvRacF22A2UDZRU8sgAsudibDoBSF1DDMAbEjoDUX0V/VjZoDEXdynfZq8OdI192Y93NYHN2V1vUbI6mxVhYj4c8ixObsgYhWI6jyFcTVMsc6J9qcR832SvCDFa5d1Gr9yo0Fccm/p1GgxLjkNIlrGTOzzKr5nJDBjYg0c+KC8DwoZXQ98gOleFYn0xuwQn4QuaP5CsUk2JQZmimsixfkd6hYTZj6siaQt7LQuzVGJsdMAZANMnZjURieInOt81IzyzS30132FJ6s+5W9TwQyg2KqNEq8jLiEW46SVCI8egLELoJvgG1zWOR3Q64VCVf3apSuNBAaKHjioEmmOcjhUUwfEyKBGOSu3/mmJZiSb7kmsMXmxDBS+4VSLfqagOO8RGkzIQEi6oHpGQxwOcjbq+wFMS7ksxbck6k198JE1u614hAcVcj0g4zXHKhZHcSr7SDN9cWIYb0xVuoNiL0TEhPMa1FrcHNub9RQP0XAxlm6NIdEWhaNXYUpZmbKANyTQyeI48MFdt1T8biuFE++5/wAhShfXS8V+bXzisFLAgbV6mV/FnAilcbxALuach/pMZzX1vmGtS+oEw6Iz9WX6sNoweKV9EFSJLi3NkaUga9EWiBIxMbDmQNQfKXILseI2JOpsKAADXD2INq+fjy2LnPZtEpRNIdNrqpqO8EA9GHo0r6saWyHBgJ0vnNBjhkk43oDgXiI2JroT+lG7zTO7e7Glth8MDkv+OStlYL+g80LyyGyqKcSuNfSGiD3NQoxThElrRr/KKxMjzXuHJ1FunSp5JX0F3Yt5SiNMxJv7i4AGx1qMcbZM9tWBOlOB6SJhox2iULS2UGwA9+dAB1hEk3+JJxNUbYwwvbPEoIQtobNUSLHIgKsOhpgF5k0DECSFPMi2tYtnQOS8Itp2uKURwQRkhBsAK1Z2LH3PmAQXf/basUkeKIylHuB3ANYV4ZRyYb9wdiPLqPImNGa18oXW+thRspxcNupGcV/bP/rNJeAYqP1D2Buae0k6epiCOUewSgb5qjb1EiVdf7otWdrbkggAU3p4WC8bMu7kUTkljdHo8ctnk7IPqOFjE1i3TOCtaEyFh+dYZMREQSpcaqexpmxMG5gPzVpGR1azKwsQR1HkSWueI8rm/CNhR40cOD3BvWGjkSdRMmfpKA9WBjlYkbEX0FKGEPhxNjqNFBFIFhj43kbRAE3Y9hUKGCHgE8gvntzApQs8cUiXTbPsD5IBEkeSG9Hjle9uSjkB9WA4mBbKsy/MWvEoXwiKS7M1inZqxJd4dwVK3XqtYT0JI3ZUxUZs1lNuKiMbgCLieHWw6sKgL2+82yr7mnSWRdSW0jWiSEBUS7LbkKCrMqyNGwJXUMdNaTMcVCElJJOZTSCL6VrMV3MabL5PaLGGQppqhNeKwCCLifQhcgq6eF4XSIbGVts5HwLkRvZ1/iRtGFET4PEXkSRNdH11FTFsK8OcIeTggVGiLvZQFF6f7CA27M9G1yBfT/m1TsiFiQu6i5vs16lQYkXKcs60hMLYYRBujqxNRMmGUguxrEJDBElkTd39lFAwYBTpFzfu/wAKe8JN3gfWNqjOAxRTjBBZW/lK1FJmdberJw5fIn1GBUgXBUHQ8xryI2sfJvlgKCDsRqbEEi1+lPDioxyxKZ6fDYROkEQFYiSaVt3kYsx/M/FS57nQ60bDt7WoVrINiDou/wDUbgj9itRJ/ef/xAAjEQACAQQBAwUAAAAAAAAAAAABEQIAAxAgEiExQAQUIjBB/9oACAECAQE/APHeFhfU9Vt+qj3wWF0W4I6lZ9xZuen4TipRj8TUpxiuRTOT2FNbXbQuRRqxA24cSXhnyf/EACYRAAEEAQIEBwAAAAAAAAAAAAEAAgMRBCAxBRASIRMUQEFQUWH/2gAIAQMBAT8A+FrTem1sENhyaQ66INGu2kqkQbAvn5PJhzRNE+43yW8fhKhxp5+vwoy/oFkDelVdiihuVV6sDOlwZjIwAginA+4XEcmPLyTNGwtDmiwfvlQ9T//Z" alt="camera" />
+    </picture>
+  </div>
+</div>
+
+    <section class="player_backdrop is-hidden">
+  <div class="player_wraper">
+    <button type="button" class="close-modal-oops" data-modal-trailer-close>
+      <svg class="close-oops">
+        <use href="/CinemaMania/assets/icon-8e3ec847.svg#icon-close"></use>
+      </svg>
+    </button>
+    <div class="player_container"></div>
+  </div>
+</section>
+
+    <section class="backdrop-movie-info is-hidden" data-modal>
+  <div class="modal-movie-info">
+    <div class="modal-movie-info_container"></div>
+    <button class="close-pop-up data-modal-close" type="button">
+      <svg class="close-pop-up-icon" width="24" height="24">
+        <use href="/CinemaMania/assets/icon-8e3ec847.svg#icon-close-pop-up"></use>
+      </svg>
+    </button>
+  </div>
+</section>
+
+    <div class="backdrop-team-modal is-hidden">
+    <div class="modal-team">
+              <h1 class="team-name">Developers</h1>
+      <button type="button" class="close-btn">
+        <svg class="modal-close-btn" width="15" height="15">
+          <!-- <use class="close-icon" href="./images/sprite.svg#icon-close"></use> -->
+        </svg>
+      </button>
+      <div class="modal-container ">
+      <ul class="team-card">
+        <li class="card">
+          <img src="/CinemaMania/assets/oleksandr-shkut-d8e4e594.jpg" alt="Team-Lead">
+          <p class="full-name">Oleksandr Shkut</p>
+          <p class="team-position">Team-Lead</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/lidia-d2e92c3b.jpg" alt="Scrum-Master">
+          <p class="full-name">Lidia Zaichenko</p>
+          <p class="team-position">Scrum-Master</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/ivan-239c82e0.jpg" alt="Developer">
+          <p class="full-name">Ivan Ostrovka</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/vlad-ivanov-bcbc2c37.jpg" alt="Developer">
+          <p class="full-name">Volodimir Ivanov</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/veronica-aac70fc7.jpg" alt="Developer">
+          <p class="full-name">Veronica Begunova</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/igor-963c8e57.jpg" alt="Developer">
+          <p class="full-name">Igor Yaroslavskii</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/anastasia-286f4627.jpg" alt="Developer">
+          <p class="full-name">Anastasia Grigoreva </p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/natali-9b53cfd8.jpg" alt="Developer">
+          <p class="full-name">Natalia Rusakova</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/vlad-ald-f74b7a61.jpg" alt="Developer">
+          <p class="full-name">Vladislav Aldoshin</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/roksolana-e904c94c.jpg" alt="Developer">
+          <p class="full-name">Roksolana Prociv</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/oleksandr-burtoviy-e5709230.jpg" alt="Developer">
+          <p class="full-name">Oleksandr Burtoviy</p>
+          <p class="team-position">Developer</p>
+        </li>
+      </ul>
+      </div>
+      </div>
+  </div>
+    
+  </body>
+</html>

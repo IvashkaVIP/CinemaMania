@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalog</title>
+    <link rel="icon" type="image/svg+xml" href="/CinemaMania/assets/ico-71d7d13e.ico" />
+    
+    <script type="module" crossorigin src="/CinemaMania/assets/catalog-ca5fc3b3.js"></script>
+    <link rel="modulepreload" crossorigin href="/CinemaMania/assets/switcher-a65914b1.js">
+    <link rel="modulepreload" crossorigin href="/CinemaMania/assets/lodash-f69bb496.js">
+    <link rel="stylesheet" href="/CinemaMania/assets/switcher-820b70e1.css">
+    <link rel="stylesheet" href="/CinemaMania/assets/catalog-a7de1e39.css">
+  </head>
+  <body>
+    <section class="header">
+  <div class="container">
+    <div class="header-wrap">
+      <div class="header-nav-wrap">
+        <a href="./index.html" class="header-logo-box">
+          <svg class="logo">
+          <use href="/CinemaMania/assets/sprite-0e8d2592.svg#icon-Logo"></use>
+          </svg>
+          <span class="logo_text">Cinemania</span>
+        </a>
+          <ul class="nav">
+            <li><a class="nav_list" href="./index.html">HOME</a></li>
+            <li><a class="nav_list" href="./catalog.html">CATALOG</a></li>
+            <li><a class="nav_list" href="./my_library.html">MY LIBRARY</a></li>
+          </ul>
+        <span class="menu" id="menu">MENU</span>
+      </div>
+<!-- ============================switcher=========================================== -->
+    <div class="toggle">
+      <div class="toggle-icon">
+      <svg class="moon-icon">
+          <use href="/CinemaMania/assets/sprite-0e8d2592.svg#icon-Moon"></use>
+      </svg>
+      <svg class="sun-icon">
+          <use href="/CinemaMania/assets/sprite-0e8d2592.svg#icon-Sun"></use>
+      </svg>
+      </div>
+    </div>
+
+</div>
+  </div>
+</section>
+<!-- ===========================mobile menu================================================== -->
+<div class="backdrop" id="backdrop"></div>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <a href="./index.html" class="modal-logo">
+      <svg class="logo">
+        <use href="/CinemaMania/assets/sprite-0e8d2592.svg#icon-Logo"></use>
+      </svg>
+    </a>
+    <nav class="modal-nav">
+      <ul class="nav-list">
+        <li><a class="mobile-nav-list" href="./index.html">HOME</a></li>
+        <li><a class="mobile-nav-list" href="./catalog.html">CATALOG</a></li>
+        <li><a class="mobile-nav-list" href="./my_library.html">MY LIBRARY</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+
+
+    <section class="section hero">
+  <div class="container hero-container">
+    <div class="hero-text-container">
+  </div>
+</section>
+
+    <section class="section catalog-search">
+    <div class="container">
+        <form action="submit" class="catalog__form" id="search-form">
+          <div class="input-container">
+            <input
+              class="catalog__form-input"
+              type="text"
+              name="search"
+              id="searchQuery"
+              placeholder="Search"
+              autocomplete="off"
+            />
+            
+              <svg class="clear__icon">
+                <use href="/CinemaMania/assets/sprite-0e8d2592.svg#icon-clear-input" ></use>
+              </svg>
+          </div>
+          <button class="catalog__form-button" aria-label="search button">
+            <svg class="search__icon">
+              <use href="/CinemaMania/assets/sprite-0e8d2592.svg#icon-searh_white" ></use>
+            </svg>                
+          </button>
+        </form>
+    </div>
+</section>
+    <section class="section catalog-movies">
+    <div class="container">
+        <div class="no-results" hidden>
+            <p class="text-no-results">OOPS...</p>
+            <p class="text-no-results">We are very sorry!</p>
+            <p class="text-no-results">We don’t have any results matching your search.</p>
+        </div>
+        <ul class="gallery-movies"></ul>
+    </div>
+</section>
+    <section class="section pagination">
+    <div class="container">
+        <div id="tui-pagination-container" class="tui-pagination"></div>
+    </div>
+</section>
+    <section class="section footer-section">
+  <div class="container text-footer">
+    <p>© 2023 | All Rights Reserved |</p>
+    <div class="footer-mobile text">
+      <p class="footer-part">Developed with</p>
+      <svg class="icon-heart">
+        <use width="14" height="13" href="/CinemaMania/assets/icon-8e3ec847.svg#icon-heart"></use>
+      </svg>
+      <span class="footer-span">by</span>
+      <button class="footer-btn text-footer text">GoIT Students</button>
+    </div>
+  </div>
+</section>
+
+    <section class="backdrop-movie-info is-hidden" data-modal>
+  <div class="modal-movie-info">
+    <div class="modal-movie-info_container"></div>
+    <button class="close-pop-up data-modal-close" type="button">
+      <svg class="close-pop-up-icon" width="24" height="24">
+        <use href="/CinemaMania/assets/icon-8e3ec847.svg#icon-close-pop-up"></use>
+      </svg>
+    </button>
+  </div>
+</section>
+
+    <section class="player_backdrop is-hidden">
+  <div class="player_wraper">
+    <button type="button" class="close-modal-oops" data-modal-trailer-close>
+      <svg class="close-oops">
+        <use href="/CinemaMania/assets/icon-8e3ec847.svg#icon-close"></use>
+      </svg>
+    </button>
+    <div class="player_container"></div>
+  </div>
+</section>
+
+    <div class="backdrop-team-modal is-hidden">
+    <div class="modal-team">
+              <h1 class="team-name">Developers</h1>
+      <button type="button" class="close-btn">
+        <svg class="modal-close-btn" width="15" height="15">
+          <!-- <use class="close-icon" href="./images/sprite.svg#icon-close"></use> -->
+        </svg>
+      </button>
+      <div class="modal-container ">
+      <ul class="team-card">
+        <li class="card">
+          <img src="/CinemaMania/assets/oleksandr-shkut-d8e4e594.jpg" alt="Team-Lead">
+          <p class="full-name">Oleksandr Shkut</p>
+          <p class="team-position">Team-Lead</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/lidia-d2e92c3b.jpg" alt="Scrum-Master">
+          <p class="full-name">Lidia Zaichenko</p>
+          <p class="team-position">Scrum-Master</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/ivan-239c82e0.jpg" alt="Developer">
+          <p class="full-name">Ivan Ostrovka</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/vlad-ivanov-bcbc2c37.jpg" alt="Developer">
+          <p class="full-name">Volodimir Ivanov</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/veronica-aac70fc7.jpg" alt="Developer">
+          <p class="full-name">Veronica Begunova</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/igor-963c8e57.jpg" alt="Developer">
+          <p class="full-name">Igor Yaroslavskii</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/anastasia-286f4627.jpg" alt="Developer">
+          <p class="full-name">Anastasia Grigoreva </p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/natali-9b53cfd8.jpg" alt="Developer">
+          <p class="full-name">Natalia Rusakova</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/vlad-ald-f74b7a61.jpg" alt="Developer">
+          <p class="full-name">Vladislav Aldoshin</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/roksolana-e904c94c.jpg" alt="Developer">
+          <p class="full-name">Roksolana Prociv</p>
+          <p class="team-position">Developer</p>
+        </li>
+        <li class="card">
+          <img src="/CinemaMania/assets/oleksandr-burtoviy-e5709230.jpg" alt="Developer">
+          <p class="full-name">Oleksandr Burtoviy</p>
+          <p class="team-position">Developer</p>
+        </li>
+      </ul>
+      </div>
+      </div>
+  </div>
+    
+  </body>
+</html>
